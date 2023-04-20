@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ReactDom from "react-dom";
 const Footer = () => {
     return ReactDom.createPortal(
-        <footer className="bg-slate-800 text-white footer">
+        <footer className="bg-slate-800 mt-20 text-white footer">
             <div className="container mx-auto py-8 px-3">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
                     <div className="">

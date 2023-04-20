@@ -31,7 +31,7 @@ const HomeNewest = () => {
     const [first, ...rest] = posts;
     return (
         <>
-            <div className="py-20">
+            <div className="pt-20">
                 <div className="container">
                     <h2 className="home-title">Mới nhất</h2>
                     <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 mt-8">
