@@ -6,7 +6,7 @@ import Content from "./Content";
 const Dropdown = ({ placeholder = "Please select an option", children, ...props }) => {
     return (
         <DropdownProvider {...props}>
-            <div className="relative inline-block w-full">
+            <div className="relative text-[#333] inline-block w-full">
                 <Select placeholder={placeholder}></Select>
                 <Content>{children}</Content>
             </div>
