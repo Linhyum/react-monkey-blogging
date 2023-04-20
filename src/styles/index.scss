@@ -1,0 +1,225 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+    font-size: 16px;
+    font-family: "Montserrat", sans-serif;
+}
+#root {
+    @apply px-3;
+}
+body {
+    line-height: 1.5;
+    // -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    @apply bg-white text-[#333];
+    // @apply bg-slate-900 text-white;
+}
+.banner {
+    background-image: linear-gradient(155deg, #00b4aa 6.67%, #a4d96c 84.1%);
+}
+
+/* Tạo thanh cuộn */
+*::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Tạo màu nền cho thanh cuộn */
+*::-webkit-scrollbar-track {
+    background-color: #eee;
+}
+
+/* Tạo màu cho thanh cuộn */
+*::-webkit-scrollbar-thumb {
+    background-color: #2ebac1;
+    border-radius: 5px;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    outline: none;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+.container {
+    width: 100%;
+    max-width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+}
+button:hover {
+    opacity: 0.9;
+}
+.home-title {
+    @apply text-[#3A1097] text-3xl font-bold relative;
+}
+.home-title::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 0;
+    height: 5px;
+    width: 60px;
+    background-color: #00d1ed;
+    border-radius: 100rem;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+.grid-layout {
+    display: grid;
+    grid-auto-columns: 235px;
+    gap: 20px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    @media screen and (min-width: 1024px) {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 40px;
+    }
+    @media screen and (max-width: 1023.98px) {
+        grid-auto-flow: column;
+        scroll-snap-type: x mandatory;
+        overflow-x: auto;
+    }
+
+    & > * {
+        scroll-snap-align: start;
+    }
+    &--primary {
+        grid-auto-columns: 220px;
+        @media screen and (min-width: 1024px) {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+    }
+}
+.home-block {
+    padding-bottom: 40px;
+    @media screen and (min-width: 1024px) {
+        padding-bottom: 60px;
+    }
+}
+.entry-content,
+.entry-content .ql-snow .ql-editor {
+    font-size: 16px;
+    h2,
+    h3,
+    h4 {
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    h2 {
+        font-size: 32px;
+    }
+    h3 {
+        font-size: 26px;
+    }
+    h4 {
+        font-size: 22px;
+    }
+    p {
+        margin-bottom: 20px;
+        line-height: 2;
+        text-align: justify;
+    }
+    figure {
+        margin-bottom: 20px;
+    }
+    figure img {
+        border-radius: 20px;
+        margin-bottom: 10px;
+    }
+    figcaption {
+        text-align: center;
+        font-style: italic;
+        font-size: 14px;
+        color: #6b6b6b;
+    }
+    ul {
+        list-style-type: disc;
+    }
+    ol {
+        list-style: decimal;
+    }
+    ul,
+    ol {
+        margin-bottom: 20px;
+        padding-left: 40px;
+        margin-left: 0;
+        li {
+            margin-bottom: 10px;
+        }
+    }
+    img {
+        border-radius: 8px;
+        margin-bottom: 30px;
+    }
+    @media screen and (max-width: 1023.98px) {
+        font-size: 14px;
+        h2 {
+            font-size: 26px;
+        }
+        h3 {
+            font-size: 24px;
+        }
+        h4 {
+            font-size: 20px;
+        }
+    }
+}
+
+.quill {
+    position: relative;
+    .ql-toolbar {
+        position: sticky;
+        top: 0;
+        background-color: white;
+        z-index: 10;
+    }
+}
+.hidden-input {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap;
+}
+.ql-editor {
+    font-size: 16px;
+}
