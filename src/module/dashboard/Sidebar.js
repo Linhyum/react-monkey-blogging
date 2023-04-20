@@ -141,15 +141,12 @@ const Sidebar = ({ className, setShow }) => {
                     );
                 }
                 return (
-                    <NavLink
-                        onClick={() => setShow(false)}
-                        to={link.url}
-                        className={`menu-item`}
-                        key={link.title}
-                    >
-                        <span className="menu-icon">{link.icon}</span>
-                        <span className="menu-text">{link.title}</span>
-                    </NavLink>
+                    <div onClick={() => setShow(false)}>
+                        <NavLink to={link.url} className={`menu-item`} key={link.title}>
+                            <span className="menu-icon">{link.icon}</span>
+                            <span className="menu-text">{link.title}</span>
+                        </NavLink>
+                    </div>
                 );
             })}
         </SidebarStyles>
