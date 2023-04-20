@@ -24,8 +24,23 @@ body {
     line-height: 1.5;
     // -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    @apply bg-white text-[#333];
-    // @apply bg-slate-900 text-white;
+    @apply bg-white text-[#333] transition-all duration-300;
+}
+body.dark {
+    @apply bg-slate-900 text-white transition-all duration-300;
+}
+body.dark .home-title {
+    color: white;
+}
+body.dark .dashboard-header,
+body.dark table,
+body.dark .sidebar {
+    @apply bg-slate-900 text-white transition-all duration-300;
+}
+body.dark thead {
+    background-color: #333;
+    transition: all 0.3s;
+    color: white;
 }
 .banner {
     background-image: linear-gradient(155deg, #00b4aa 6.67%, #a4d96c 84.1%);
@@ -80,7 +95,7 @@ button:hover {
     opacity: 0.9;
 }
 .home-title {
-    @apply text-[#3A1097] text-3xl font-bold relative;
+    @apply text-[#3A1097] text-3xl font-bold relative transition-all duration-300;
 }
 .home-title::before {
     content: "";

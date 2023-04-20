@@ -18,6 +18,7 @@ const SidebarStyles = styled.div`
         font-weight: 500;
         color: ${(props) => props.theme.gray80};
         margin-bottom: 20px;
+        transition: all 0.15s;
         cursor: pointer;
         &.active,
         &:hover {

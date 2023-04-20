@@ -18,7 +18,7 @@ const PostNewestItem = ({ post, index }) => {
                 ></PostImage>
                 <div>
                     <PostCategory bg="white">{post?.category?.name}</PostCategory>
-                    <PostTitle margin="my-[10px]">{post?.title}</PostTitle>
+                    <PostTitle margin="my-[10px] text-[#333]">{post?.title}</PostTitle>
                     <PostMeta
                         date={new Date(post?.createdAt?.seconds * 1000).toLocaleDateString("vi-VI")}
                         author={post?.user?.fullname}

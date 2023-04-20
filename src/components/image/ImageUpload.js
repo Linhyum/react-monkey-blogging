@@ -21,7 +21,7 @@ const ImageUpload = (props) => {
             {!image && progress === 0 && (
                 <div className="flex flex-col items-center text-center pointer-events-none">
                     <img src="/img-upload.png" alt="upload-img" className="max-w-[80px] mb-5" />
-                    <p className="font-semibold">Choose photo</p>
+                    <p className="font-semibold text-[#333]">Choose photo</p>
                 </div>
             )}
             {image && (

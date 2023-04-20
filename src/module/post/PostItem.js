@@ -11,7 +11,9 @@ const PostItem = ({ post }) => {
             <PostImage url={post?.image} alt={post?.title} height="h-[202px]"></PostImage>
             <PostCategory mr={"mt-6"}>{post?.category?.name}</PostCategory>
             {/* <div className="flex flex-col justify-between"> */}
-            <PostTitle margin="my-[10px]">{post?.title}</PostTitle>
+            <PostTitle cl="[#333]" margin="my-[10px]">
+                {post?.title}
+            </PostTitle>
             <PostMeta
                 date={new Date(post?.createdAt?.seconds * 1000).toLocaleDateString("vi-VI")}
                 author={post?.user?.fullname}

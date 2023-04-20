@@ -33,7 +33,7 @@ const DashboardHeader = () => {
     }, [userInfo?.fullname]);
     if (user.length <= 0) return null;
     return (
-        <div className="bg-white p-5 border-b border-gray-200 flex justify-between items-center gap-5">
+        <div className="bg-white dashboard-header p-5 border-b border-gray-200 flex justify-between items-center gap-5">
             <NavLink to={"/"} className="hidden xl:flex items-center font-semibold gap-x-5">
                 <img srcSet="/logo.svg 3x" alt="monkey-blogging" />
                 <span>Monkey Blogging</span>

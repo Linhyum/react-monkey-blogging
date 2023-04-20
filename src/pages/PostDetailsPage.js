@@ -54,9 +54,6 @@ const PostDetailsPageStyles = styled.div`
             &-heading {
                 font-size: 26px;
             }
-            &-content {
-                margin: 40px 0;
-            }
         }
     }
 `;

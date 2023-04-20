@@ -23,6 +23,7 @@ const AuthorBoxStyles = styled.div`
         &-content {
             flex: 1;
             padding: 20px;
+            color: #333;
         }
         &-name {
             font-weight: bold;
@@ -41,7 +42,8 @@ const AuthorBoxStyles = styled.div`
             flex-direction: column;
             &-image {
                 width: 100%;
-                height: auto;
+                height: 400px;
+                object-fit: cover;
             }
         }
     }
@@ -49,7 +51,7 @@ const AuthorBoxStyles = styled.div`
 const AuthorBox = ({ postInfo }) => {
     return (
         <AuthorBoxStyles>
-            <div className="author">
+            <div className="author ">
                 <div className="author-image">
                     <img src={postInfo?.user?.avatar} alt={postInfo?.user?.fullname} />
                 </div>

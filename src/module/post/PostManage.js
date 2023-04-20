@@ -124,14 +124,12 @@ const PostManage = () => {
                     </NavLink>
                 </div>
                 <div className="mb-10 flex justify-end">
-                    <div className="w-full max-w-[300px]">
-                        <input
-                            onChange={handleInputFilter}
-                            type="text"
-                            className="w-full p-4 rounded-lg border border-solid border-gray-300"
-                            placeholder="Search post..."
-                        />
-                    </div>
+                    <input
+                        onChange={handleInputFilter}
+                        type="text"
+                        className="w-[250px] border border-gray-300 rounded-lg py-3 px-4 outline-none  bg-transparent"
+                        placeholder="Search post..."
+                    />
                 </div>
 
                 <Table>
