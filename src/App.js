@@ -1,8 +1,24 @@
 import { Route, Routes } from "react-router-dom";
 import { AuthProvider } from "./contexts/auth-context";
 import { lazy, Suspense } from "react";
-import HomeButton from "./module/mode/HomeButton";
-import DarkMode from "./module/mode/DarkMode";
+// import DarkMode from "./module/mode/DarkMode";
+// import HomeButton from "./module/mode/HomeButton";
+// import PostManage from "./module/post/PostManage";
+// import CategoryManage from "./module/category/CategoryManage";
+// import PostAddNew from "./module/post/PostAddNew";
+// import CategoryAddNew from "./module/category/CategoryAddNew";
+// import CategoryUpdate from "./module/category/CategoryUpdate";
+// import UserManage from "./module/user/UserManage";
+// import UserUpdate from "./module/user/UserUpdate";
+// import PostUpdate from "./module/post/PostUpdate";
+// import UserAddNew from "./module/user/UserAddNew";
+// import UserProfile from "./module/user/UserProfile";
+// import HomePage from "./pages/HomePage";
+// import SignUpPage from "./pages/SignUpPage";
+// import SignInPage from "./pages/SignInPage";
+// import NotFoundPage from "./pages/NotFoundPage";
+// import PostDetailsPage from "./pages/PostDetailsPage";
+// import DashboardLayout from "./module/dashboard/DashboardLayout";
 const HomePage = lazy(() => import("./pages/HomePage"));
 const SignUpPage = lazy(() => import("./pages/SignUpPage"));
 const SignInPage = lazy(() => import("./pages/SignInPage"));
@@ -19,6 +35,8 @@ const UserManage = lazy(() => import("./module/user/UserManage"));
 const CategoryAddNew = lazy(() => import("./module/category/CategoryAddNew"));
 const CategoryManage = lazy(() => import("./module/category/CategoryManage"));
 const CategoryUpdate = lazy(() => import("./module/category/CategoryUpdate"));
+const HomeButton = lazy(() => import("./module/mode/HomeButton"));
+const DarkMode = lazy(() => import("./module/mode/DarkMode"));
 function App() {
     return (
         <AuthProvider>

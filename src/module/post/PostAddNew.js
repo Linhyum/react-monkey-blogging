@@ -29,6 +29,7 @@ import {
     where,
 } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
+import DashboardHeading from "../dashboard/DashboardHeading";
 
 const PostAddNewStyles = styled.div``;
 const modules = {
@@ -161,9 +162,10 @@ const PostAddNew = () => {
 
     return (
         <PostAddNewStyles>
-            <h1 className="dashboard-heading">Add new post</h1>
+            <DashboardHeading title="New post" desc="Add new post"></DashboardHeading>
+
             <form onSubmit={handleSubmit(addPostHandler)}>
-                <div className="grid grid-cols-2 gap-x-10 gap-y-14">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-14">
                     <Field>
                         <Label htmlFor="title">Title</Label>
                         <Input
