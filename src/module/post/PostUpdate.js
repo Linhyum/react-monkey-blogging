@@ -164,7 +164,7 @@ const PostUpdate = () => {
         <div>
             <DashboardHeading title="Update post" desc="Update post content"></DashboardHeading>
             <form onSubmit={handleSubmit(handleUpdatePost)}>
-                <div className="grid grid-cols-2 gap-x-10 gap-y-14">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-14">
                     <Field>
                         <Label htmlFor="title">Title</Label>
                         <Input

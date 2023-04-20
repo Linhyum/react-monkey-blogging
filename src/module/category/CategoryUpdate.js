@@ -61,7 +61,7 @@ const CategoryUpdate = () => {
                 desc={`Update your category id: ${categoryId}`}
             ></DashboardHeading>
             <form onSubmit={handleSubmit(handleUpdateCategory)}>
-                <div className="grid grid-cols-2 gap-x-10 gap-y-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-14">
                     <Field>
                         <Label>Name</Label>
                         <Input

@@ -34,7 +34,8 @@ body.dark .home-title {
 }
 body.dark .dashboard-header,
 body.dark table,
-body.dark .sidebar {
+body.dark .sidebar,
+body.dark .dashboardMenu {
     @apply bg-slate-900 text-white transition-all duration-300;
 }
 body.dark thead {
