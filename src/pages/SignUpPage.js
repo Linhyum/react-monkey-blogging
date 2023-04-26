@@ -39,30 +39,36 @@ const SignUpPage = () => {
         resolver: yupResolver(validationSchema),
     });
     const handleSignUp = async (values) => {
-        if (!isValid) return;
-        await createUserWithEmailAndPassword(auth, values.email, values.password);
-        await updateProfile(auth.currentUser, {
-            displayName: values.fullname,
-            photoURL:
-                "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png",
-        });
+        try {
+            if (!isValid) return;
+            await createUserWithEmailAndPassword(auth, values.email, values.password);
+            await updateProfile(auth.currentUser, {
+                displayName: values.fullname,
+                photoURL:
+                    "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png",
+            });
 
-        ///thêm vào firestore database
-        await setDoc(doc(db, "users", auth.currentUser.uid), {
-            fullname: values.fullname,
-            email: values.email,
-            password: values.password,
-            confirmPassword: values.confirmPassword,
-            username: values.username || values.fullname,
-            avatar: "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png",
-            status: "Active",
-            role: "User",
-            createdAt: serverTimestamp(),
-        });
-        toast.success("Register successfully!", {
-            autoClose: 3000,
-        });
-        navigate("/");
+            ///thêm vào firestore database
+            await setDoc(doc(db, "users", auth.currentUser.uid), {
+                fullname: values.fullname,
+                email: values.email,
+                password: values.password,
+                confirmPassword: values.confirmPassword,
+                username: values.username || values.fullname,
+                avatar: "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png",
+                status: "Active",
+                role: "User",
+                createdAt: serverTimestamp(),
+            });
+            toast.success("Register successfully!", {
+                autoClose: 3000,
+            });
+            navigate("/");
+        } catch (error) {
+            toast.error("This account is already in use", {
+                autoClose: 3000,
+            });
+        }
     };
     useEffect(() => {
         document.title = "Sign Up Page";
