@@ -24,20 +24,14 @@ const SignInPage = () => {
 
     const validationSchema = Yup.object().shape({
         email: Yup.string().email("Invalid email").required("Email is required"),
-        password: Yup.string()
-            .required("Password is required")
-            .min(8, "Password must be at least 8 characters")
-            .matches(
-                /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/,
-                "Password must contain at least one uppercase letter, one number, and one special character"
-            ),
+        password: Yup.string().required("Password is required"),
     });
     const {
         control,
         handleSubmit,
         formState: { errors, isValid, isSubmitting },
     } = useForm({
-        mode: "onChange",
+        mode: "onSubmit",
         resolver: yupResolver(validationSchema),
     });
     const handleSignIn = async (values) => {
@@ -69,6 +63,7 @@ const SignInPage = () => {
                     <Field className="flex flex-col gap-y-5 items-start">
                         <Label htmlFor="email">Email</Label>
                         <Input
+                            className={`${errors.email && "!border-red-500"}`}
                             type="email"
                             name="email"
                             placeholder="Enter your email"
@@ -84,6 +79,7 @@ const SignInPage = () => {
                     <Field>
                         <Label htmlFor="password">Password</Label>
                         <Input
+                            className={`${errors.password && "!border-red-500"}`}
                             type="password"
                             name="password"
                             placeholder="Enter your password"

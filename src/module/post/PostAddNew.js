@@ -30,6 +30,7 @@ import {
 } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import DashboardHeading from "../dashboard/DashboardHeading";
+import { DropdownProvider } from "../../components/dropdown/dropdown-context";
 
 const PostAddNewStyles = styled.div``;
 const modules = {
@@ -192,14 +193,19 @@ const PostAddNew = () => {
                     </Field>
                     <Field>
                         <Label>Category</Label>
-                        <Dropdown placeholder={selectCategory}>
-                            {categories.length > 0 &&
-                                categories.map((item) => (
-                                    <Option onClick={() => handleClickOption(item)} key={item.id}>
-                                        {item.name}
-                                    </Option>
-                                ))}
-                        </Dropdown>
+                        <DropdownProvider>
+                            <Dropdown placeholder={selectCategory}>
+                                {categories.length > 0 &&
+                                    categories.map((item) => (
+                                        <Option
+                                            onClick={() => handleClickOption(item)}
+                                            key={item.id}
+                                        >
+                                            {item.name}
+                                        </Option>
+                                    ))}
+                            </Dropdown>
+                        </DropdownProvider>
                     </Field>
 
                     <Field>

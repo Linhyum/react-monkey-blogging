@@ -1,4 +1,3 @@
-import slugify from "slugify";
 import React, { useEffect } from "react";
 import Input from "../components/input/Input";
 import Field from "../components/field/Field";
@@ -21,11 +20,7 @@ const SignUpPage = () => {
         email: Yup.string().email("Invalid email").required("Email is required"),
         password: Yup.string()
             .required("Password is required")
-            .min(8, "Password must be at least 8 characters")
-            .matches(
-                /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/,
-                "Password must contain at least one uppercase letter, one number, and one special character"
-            ),
+            .min(8, "Password must be at least 8 characters"),
         confirmPassword: Yup.string()
             .oneOf([Yup.ref("password"), null], "Passwords must match")
             .required("Confirm Password is required"),
@@ -35,7 +30,7 @@ const SignUpPage = () => {
         handleSubmit,
         formState: { errors, isValid, isSubmitting },
     } = useForm({
-        mode: "onChange",
+        mode: "onSubmit",
         resolver: yupResolver(validationSchema),
     });
     const handleSignUp = async (values) => {
@@ -92,6 +87,7 @@ const SignUpPage = () => {
                     <Field className="flex flex-col gap-y-5 items-start">
                         <Label htmlFor="fullname">Fullname</Label>
                         <Input
+                            className={`${errors.fullname && "!border-red-500"}`}
                             type="text"
                             name="fullname"
                             placeholder="Enter your fullname"
@@ -107,6 +103,7 @@ const SignUpPage = () => {
                     <Field className="flex flex-col gap-y-5 items-start">
                         <Label htmlFor="email">Email</Label>
                         <Input
+                            className={`${errors.email && "!border-red-500"}`}
                             type="email"
                             name="email"
                             placeholder="Enter your email"
@@ -122,6 +119,7 @@ const SignUpPage = () => {
                     <Field>
                         <Label htmlFor="password">Password</Label>
                         <Input
+                            className={`${errors.password && "!border-red-500"}`}
                             type="password"
                             name="password"
                             placeholder="Enter your password"
@@ -138,6 +136,7 @@ const SignUpPage = () => {
                     <Field>
                         <Label htmlFor="confirmPassword">Confirm password</Label>
                         <Input
+                            className={`${errors.confirmPassword && "!border-red-500"}`}
                             type="password"
                             name="confirmPassword"
                             placeholder="Enter your confirm password"

@@ -3,10 +3,10 @@ import React from "react";
 const IconEyeOpen = ({ open, onClick = () => {} }) => {
     return (
         <span
-            className="cursor-pointer absolute z-10 top-1/2 -translate-y-1/2 right-5"
+            className="absolute z-10 -translate-y-1/2 cursor-pointer top-1/2 right-5"
             onClick={onClick}
         >
-            {open ? (
+            {!open ? (
                 <svg
                     width="22"
                     height="14"

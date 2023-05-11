@@ -13,7 +13,7 @@ const DarkMode = () => {
     }
     return (
         <div>
-            <div className="fixed bottom-8 left-5 z-50">
+            <div className="fixed z-50 bottom-8 left-5">
                 <div
                     className={`relative transition-all duration-300 w-20 h-9 flex items-center cursor-pointer rounded-full ${
                         dark ? "bg-green-500" : "bg-slate-400"

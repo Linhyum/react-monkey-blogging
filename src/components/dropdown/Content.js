@@ -6,7 +6,7 @@ const Content = ({ children }) => {
     return (
         <>
             {show && (
-                <div className="absolute top-full left-0 w-full bg-white shadow-md max-h-[235px] overflow-y-auto">
+                <div className="absolute top-full left-0 w-full bg-white shadow-md max-h-[235px] overflow-y-auto dropdown-content">
                     {children}
                 </div>
             )}

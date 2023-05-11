@@ -43,6 +43,17 @@ body.dark thead {
     transition: all 0.3s;
     color: white;
 }
+body.dark input {
+    @apply border-gray-300 text-white bg-transparent;
+}
+body.dark .select-dropdown,
+body.dark .dropdown-content,
+body.dark .img-upload {
+    @apply bg-slate-900 text-white border border-gray-300;
+}
+body.dark .img-upload p {
+    @apply text-white;
+}
 .banner {
     background-image: linear-gradient(155deg, #00b4aa 6.67%, #a4d96c 84.1%);
 }
@@ -111,41 +122,6 @@ button:hover {
 a {
     text-decoration: none;
     color: inherit;
-}
-.grid-layout {
-    display: grid;
-    grid-auto-columns: 235px;
-    gap: 20px;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    &::-webkit-scrollbar {
-        display: none;
-    }
-    @media screen and (min-width: 1024px) {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 40px;
-    }
-    @media screen and (max-width: 1023.98px) {
-        grid-auto-flow: column;
-        scroll-snap-type: x mandatory;
-        overflow-x: auto;
-    }
-
-    & > * {
-        scroll-snap-align: start;
-    }
-    &--primary {
-        grid-auto-columns: 220px;
-        @media screen and (min-width: 1024px) {
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-        }
-    }
-}
-.home-block {
-    padding-bottom: 40px;
-    @media screen and (min-width: 1024px) {
-        padding-bottom: 60px;
-    }
 }
 .entry-content,
 .entry-content .ql-snow .ql-editor {

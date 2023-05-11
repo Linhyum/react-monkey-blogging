@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import PostNewestLarge from "../post/PostNewestLarge";
 import PostNewestItem from "../post/PostNewestItem";
-import PostItem from "../post/PostItem";
 import { collection, limit, onSnapshot, query, where } from "firebase/firestore";
 import { db } from "../../firebase/firebase-config";
-import Footer from "../footer/Footer";
 
 const HomeNewest = () => {
     const [posts, setPosts] = useState([]);

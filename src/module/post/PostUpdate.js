@@ -22,6 +22,7 @@ import Option from "../../components/dropdown/Option";
 import ReactQuill, { Quill } from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import ImageUploader from "quill-image-uploader";
+import { DropdownProvider } from "../../components/dropdown/dropdown-context";
 Quill.register("modules/imageUploader", ImageUploader);
 
 const PostUpdate = () => {
@@ -191,14 +192,19 @@ const PostUpdate = () => {
                     </Field>
                     <Field>
                         <Label>Category</Label>
-                        <Dropdown placeholder={selectCategory}>
-                            {categories.length > 0 &&
-                                categories.map((item) => (
-                                    <Option onClick={() => handleClickOption(item)} key={item.id}>
-                                        {item.name}
-                                    </Option>
-                                ))}
-                        </Dropdown>
+                        <DropdownProvider>
+                            <Dropdown placeholder={selectCategory}>
+                                {categories.length > 0 &&
+                                    categories.map((item) => (
+                                        <Option
+                                            onClick={() => handleClickOption(item)}
+                                            key={item.id}
+                                        >
+                                            {item.name}
+                                        </Option>
+                                    ))}
+                            </Dropdown>
+                        </DropdownProvider>
                     </Field>
 
                     <Field>

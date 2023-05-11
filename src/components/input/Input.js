@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useController } from "react-hook-form";
 import IconEyeOpen from "../icon/IconEyeOpen";
 
-const Input = ({ name = "", type = "text", hasIcon = false, control, ...props }) => {
+const Input = ({ name = "", type = "text", hasIcon = false, control, className, ...props }) => {
     const { field } = useController({
         control,
         name,
@@ -19,7 +19,7 @@ const Input = ({ name = "", type = "text", hasIcon = false, control, ...props })
                 {...props}
                 className={`w-full ${
                     hasIcon ? "py-5 pl-5 pr-14" : "p-5"
-                } bg-grayLight rounded-lg text-[#333] font-medium transition-all border border-transparent focus:bg-white focus:border-primary placeholder:text-[#84878b]`}
+                } rounded-lg text-[#333] font-medium transition-all border border-gray-300 focus:border-primary placeholder:text-[#84878b] ${className}`}
             />
             {hasIcon ? (
                 <IconEyeOpen open={open} onClick={() => setOpen((open) => !open)}></IconEyeOpen>

@@ -1,12 +1,26 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 
 const DropdownContext = createContext();
 function DropdownProvider(props) {
     const [show, setShow] = useState(false);
-    const toggle = () => {
+    const nodeRef = useRef(null);
+
+    const toggle = (e) => {
         setShow(!show);
+        e.stopPropagation();
     };
-    const values = { show, setShow, toggle };
+    useEffect(() => {
+        function handleClickOut(e) {
+            if (nodeRef.current && !nodeRef.current.contains(e.target)) {
+                setShow(false);
+            }
+        }
+        document.addEventListener("click", handleClickOut);
+        return () => {
+            document.removeEventListener("click", handleClickOut);
+        };
+    }, []);
+    const values = { show, setShow, nodeRef, toggle };
     return <DropdownContext.Provider value={values}>{props.children}</DropdownContext.Provider>;
 }
 function useDropdown() {

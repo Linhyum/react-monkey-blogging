@@ -1,16 +1,16 @@
 import React from "react";
-import { DropdownProvider } from "./dropdown-context";
+import { DropdownProvider, useDropdown } from "./dropdown-context";
 import Select from "./Select";
 import Content from "./Content";
 
 const Dropdown = ({ placeholder = "Please select an option", children, ...props }) => {
+    const { nodeRef } = useDropdown();
+
     return (
-        <DropdownProvider {...props}>
-            <div className="relative text-[#333] z-10 inline-block w-full">
-                <Select placeholder={placeholder}></Select>
-                <Content>{children}</Content>
-            </div>
-        </DropdownProvider>
+        <div ref={nodeRef} className="relative text-[#333] z-10 inline-block w-full">
+            <Select placeholder={placeholder}></Select>
+            <Content>{children}</Content>
+        </div>
     );
 };
 
