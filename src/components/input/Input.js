@@ -18,7 +18,7 @@ const Input = ({ name = "", type = "text", hasIcon = false, control, className, 
                 {...field}
                 {...props}
                 className={`w-full ${
-                    hasIcon ? "py-5 pl-5 pr-14" : "p-5"
+                    hasIcon ? "py-4 pl-4 pr-14" : "p-4"
                 } rounded-lg text-[#333] font-medium transition-all border border-gray-300 focus:border-primary placeholder:text-[#84878b] ${className}`}
             />
             {hasIcon ? (

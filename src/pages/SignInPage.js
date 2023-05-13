@@ -45,22 +45,22 @@ const SignInPage = () => {
         }
     };
     return (
-        <div className="min-h-screen py-10 px-3">
+        <div className="min-h-screen px-3 py-10">
             <div className="container">
                 <div className="flex items-center justify-center">
                     <NavLink to={"/"}>
                         <img srcSet="/logo.svg 2x" alt="monkey blogging" className="mx-auto mb-5" />
                     </NavLink>
                 </div>
-                <h1 className="text-center text-primary font-bold text-4xl mb-14">
+                <h1 className="text-4xl font-bold text-center text-primary mb-14">
                     Monkey Blogging
                 </h1>
                 <form
                     autoComplete="off"
                     onSubmit={handleSubmit(handleSignIn)}
-                    className="w-full max-w-[600px] mx-auto flex flex-col gap-y-8"
+                    className="w-full max-w-[500px] mx-auto flex flex-col gap-y-8"
                 >
-                    <Field className="flex flex-col gap-y-5 items-start">
+                    <Field className="flex flex-col items-start gap-y-5">
                         <Label htmlFor="email">Email</Label>
                         <Input
                             className={`${errors.email && "!border-red-500"}`}
@@ -70,7 +70,7 @@ const SignInPage = () => {
                             control={control}
                         ></Input>
                         {errors.email && (
-                            <span className="text-red-500 relative -mt-2 text-sm block">
+                            <span className="relative block -mt-2 text-sm text-red-500">
                                 {errors.email.message}
                             </span>
                         )}
@@ -87,7 +87,7 @@ const SignInPage = () => {
                             control={control}
                         ></Input>
                         {errors.password && (
-                            <span className="text-red-500 relative -mt-2 text-sm block">
+                            <span className="relative block -mt-2 text-sm text-red-500">
                                 {errors.password.message}
                             </span>
                         )}
@@ -95,7 +95,7 @@ const SignInPage = () => {
                     <div className="text-center font-medium text-[17px]">
                         You not have an account?{" "}
                         <NavLink to={"/sign-up"}>
-                            <span className="text-primary cursor-pointer underline">Sign up</span>
+                            <span className="underline cursor-pointer text-primary">Sign up</span>
                         </NavLink>
                     </div>
                     <Button type="submit" isLoading={isSubmitting} disabled={isSubmitting}>

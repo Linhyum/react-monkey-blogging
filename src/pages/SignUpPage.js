@@ -11,6 +11,7 @@ import { Label } from "../components/label";
 import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, db } from "../firebase/firebase-config";
+import ButtonGoogle from "../components/button/ButtonGoogle";
 
 const SignUpPage = () => {
     const navigate = useNavigate();
@@ -69,22 +70,22 @@ const SignUpPage = () => {
         document.title = "Sign Up Page";
     }, []);
     return (
-        <div className="min-h-screen py-10 px-3">
+        <div className="min-h-screen px-3 py-10">
             <div className="container">
                 <div className="flex items-center justify-center">
                     <NavLink to={"/"}>
                         <img srcSet="/logo.svg 2x" alt="monkey blogging" className="mx-auto mb-5" />
                     </NavLink>
                 </div>
-                <h1 className="text-center text-primary font-bold text-4xl mb-14">
+                <h1 className="text-4xl font-bold text-center text-primary mb-14">
                     Monkey Blogging
                 </h1>
                 <form
                     autoComplete="off"
                     onSubmit={handleSubmit(handleSignUp)}
-                    className="w-full max-w-[600px] mx-auto flex flex-col gap-y-8"
+                    className="w-full max-w-[500px] mx-auto flex flex-col gap-y-8"
                 >
-                    <Field className="flex flex-col gap-y-5 items-start">
+                    <Field className="flex flex-col items-start gap-y-5">
                         <Label htmlFor="fullname">Fullname</Label>
                         <Input
                             className={`${errors.fullname && "!border-red-500"}`}
@@ -94,13 +95,13 @@ const SignUpPage = () => {
                             control={control}
                         ></Input>
                         {errors.fullname && (
-                            <span className="text-red-500 relative -mt-2 text-sm block">
+                            <span className="relative block -mt-2 text-sm text-red-500">
                                 {errors.fullname.message}
                             </span>
                         )}
                     </Field>
 
-                    <Field className="flex flex-col gap-y-5 items-start">
+                    <Field className="flex flex-col items-start gap-y-5">
                         <Label htmlFor="email">Email</Label>
                         <Input
                             className={`${errors.email && "!border-red-500"}`}
@@ -110,7 +111,7 @@ const SignUpPage = () => {
                             control={control}
                         ></Input>
                         {errors.email && (
-                            <span className="text-red-500 relative -mt-2 text-sm block">
+                            <span className="relative block -mt-2 text-sm text-red-500">
                                 {errors.email.message}
                             </span>
                         )}
@@ -127,7 +128,7 @@ const SignUpPage = () => {
                             hasIcon
                         ></Input>
                         {errors.password && (
-                            <span className="text-red-500 relative -mt-2 text-sm block">
+                            <span className="relative block -mt-2 text-sm text-red-500">
                                 {errors.password.message}
                             </span>
                         )}
@@ -144,16 +145,16 @@ const SignUpPage = () => {
                             hasIcon
                         ></Input>
                         {errors.confirmPassword && (
-                            <span className="text-red-500 relative -mt-2 text-sm block">
+                            <span className="relative block -mt-2 text-sm text-red-500">
                                 {errors.confirmPassword.message}
                             </span>
                         )}
                     </Field>
 
-                    <div className="text-center font-medium text-[17px]">
+                    <div className="font-medium text-center">
                         You already have an account?{" "}
                         <NavLink to={"/sign-in"}>
-                            <span className="text-primary cursor-pointer underline">Sign in</span>
+                            <span className="underline cursor-pointer text-primary">Sign in</span>
                         </NavLink>
                     </div>
                     <Button type="submit" isLoading={isSubmitting} disabled={isSubmitting}>

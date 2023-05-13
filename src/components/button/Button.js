@@ -8,7 +8,7 @@ import Loading from "../loading/Loading";
 const Button = ({
     children,
     width = "100%",
-    height = "68px",
+    height = "58px",
     isLoading,
     onClick = () => {},
     ...props
