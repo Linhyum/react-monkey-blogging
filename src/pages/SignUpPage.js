@@ -11,7 +11,6 @@ import { Label } from "../components/label";
 import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, db } from "../firebase/firebase-config";
-import ButtonGoogle from "../components/button/ButtonGoogle";
 
 const SignUpPage = () => {
     const navigate = useNavigate();

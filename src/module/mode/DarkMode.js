@@ -2,6 +2,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import { useState } from "react";
+import { AuthProvider } from "../../contexts/auth-context";
 
 const DarkMode = () => {
     const { storedValue, setValue } = useLocalStorage("dark", false);
@@ -12,7 +13,7 @@ const DarkMode = () => {
         document.body.classList.remove("dark");
     }
     return (
-        <div>
+        <AuthProvider>
             <div className="fixed z-50 bottom-8 left-5">
                 <div
                     className={`relative transition-all duration-300 w-20 h-9 flex items-center cursor-pointer rounded-full ${
@@ -39,7 +40,7 @@ const DarkMode = () => {
                 </div>
             </div>
             <Outlet></Outlet>
-        </div>
+        </AuthProvider>
     );
 };
 
