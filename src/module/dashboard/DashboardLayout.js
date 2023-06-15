@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import DashboardHeader from "./DashboardHeader";
@@ -36,10 +36,11 @@ const DashboardLayout = ({ children }) => {
     if (!userInfo) {
         navigate("/sign-in");
     }
+
     return (
         <DashboardStyles>
             <DashboardHeader></DashboardHeader>
-            <div className="dashboard-main grid-cols-1">
+            <div className="grid-cols-1 dashboard-main">
                 <Sidebar></Sidebar>
                 <div className="dashboard-children">
                     <Outlet></Outlet>

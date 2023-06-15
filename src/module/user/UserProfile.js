@@ -25,11 +25,7 @@ const UserProfile = () => {
         description: Yup.string().required("Description is required"),
         password: Yup.string()
             .required("Password is required")
-            .min(8, "Password must be at least 8 characters")
-            .matches(
-                /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/,
-                "Password must contain at least one uppercase letter, one number, and one special character"
-            ),
+            .min(8, "Password must be at least 8 characters"),
     });
     const {
         control,
@@ -129,7 +125,7 @@ const UserProfile = () => {
                             control={control}
                         ></Input>
                         {errors.fullname && (
-                            <span className="text-red-500 relative -mt-2 text-sm block">
+                            <span className="relative block -mt-2 text-sm text-red-500">
                                 {errors.fullname.message}
                             </span>
                         )}
@@ -152,7 +148,7 @@ const UserProfile = () => {
                             type="email"
                         ></Input>
                         {errors.email && (
-                            <span className="text-red-500 relative -mt-2 text-sm block">
+                            <span className="relative block -mt-2 text-sm text-red-500">
                                 {errors.email.message}
                             </span>
                         )}
@@ -167,7 +163,7 @@ const UserProfile = () => {
                             hasIcon
                         ></Input>
                         {errors.password && (
-                            <span className="text-red-500 relative -mt-2 text-sm block">
+                            <span className="relative block -mt-2 text-sm text-red-500">
                                 {errors.password.message}
                             </span>
                         )}
@@ -236,13 +232,13 @@ const UserProfile = () => {
                         <Label htmlFor="description">Brief description of yourself</Label>
                         <Textarea name="description" control={control}></Textarea>
                         {errors.description && (
-                            <span className="text-red-500 relative -mt-2 text-sm block">
+                            <span className="relative block -mt-2 text-sm text-red-500">
                                 {errors.description.message}
                             </span>
                         )}
                     </Field>
                 </div>
-                <div className="text-center mt-10">
+                <div className="mt-10 text-center">
                     <Button width="200px" isLoading={isSubmitting} disabled={isSubmitting}>
                         Update user
                     </Button>

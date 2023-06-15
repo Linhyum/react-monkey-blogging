@@ -166,7 +166,7 @@ const PostManage = () => {
                                                 </h3>
                                                 <time className="text-sm text-gray-500">
                                                     {new Date(
-                                                        post.createdAt.seconds * 1000
+                                                        post?.createdAt?.seconds * 1000
                                                     ).toLocaleDateString("vi-VI")}
                                                 </time>
                                             </div>
