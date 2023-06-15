@@ -1,7 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 html,
 body {
     height: 100%;
@@ -13,8 +13,9 @@ body {
 }
 body {
     line-height: 1.5;
+    color: #333;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    @apply bg-white text-[#333];
+    @apply bg-white;
 }
 body.dark {
     @apply bg-slate-900 text-white;
