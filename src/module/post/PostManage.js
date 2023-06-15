@@ -6,7 +6,6 @@ import ActionView from "../../components/action/ActionView";
 import ActionEdit from "../../components/action/ActionEdit";
 import ActionDelete from "../../components/action/ActionDelete";
 import { NavLink, useNavigate } from "react-router-dom";
-import { debounce } from "lodash";
 import { db } from "../../firebase/firebase-config";
 import {
     collection,
@@ -22,6 +21,7 @@ import {
 import LabelStatus from "../../components/label/LabelStatus";
 import DashboardHeading from "../dashboard/DashboardHeading";
 import { useAuth } from "../../contexts/auth-context";
+import { debounce } from "lodash";
 
 const postCount = 5;
 const PostManage = () => {
@@ -115,7 +115,7 @@ const PostManage = () => {
     if (userInfo?.role !== "Admin")
         return (
             <div>
-                <div className="flex flex-col sm:flex-row items-center justify-between">
+                <div className="flex flex-col items-center justify-between sm:flex-row">
                     <DashboardHeading title="Posts" desc="Manage your posts"></DashboardHeading>
                     <NavLink className={"inline-block mb-10"} to={"/manage/add-post"}>
                         <Button width="200px" height="55px">
@@ -123,7 +123,7 @@ const PostManage = () => {
                         </Button>
                     </NavLink>
                 </div>
-                <div className="mb-10 flex justify-end">
+                <div className="flex justify-end mb-10">
                     <input
                         onChange={handleInputFilter}
                         type="text"
@@ -192,7 +192,7 @@ const PostManage = () => {
                                         </LabelStatus>
                                     </td>
                                     <td>
-                                        <div className="flex items-center gap-x-3 text-gray-500">
+                                        <div className="flex items-center text-gray-500 gap-x-3">
                                             <ActionView
                                                 onClick={() => navigate(`/${post.slug}`)}
                                             ></ActionView>
